@@ -7,13 +7,13 @@ import { SequelizeModule } from '@nestjs/sequelize';
       dialect: 'mysql',
       host: 'localhost',
       port: 3306,
-      username: 'your_username',
-      password: 'your_password',
-      database: 'your_database',
+      username: 'root',
+      password: '',
+      database: 'db_shop',
       autoLoadModels: true, // Automatically load models from the 'models' folder
       synchronize: true, // Auto-create and update database tables (not recommended for production)
     }),
     // UserModule, // Include your module here
   ],
 })
-export class AppModule {}
+export class APiModule {}
