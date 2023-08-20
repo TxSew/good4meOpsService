@@ -1,8 +1,9 @@
-export interface AccountModel {
-  username?: string;
-  password?: string;
+import { BaseModel } from "../BaseModel";
+
+export interface AccountModel extends BaseModel {
   email?: string;
+  password?: string;
   name?: string;
-  role?: string;
+  role?: number;
   phone?: number;
 }

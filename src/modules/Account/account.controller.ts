@@ -1,11 +1,21 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AccountService } from './account.service';
+import { AccountModel } from 'src/models/AccountModel/AccountModel';
+import { ApiTags } from '@nestjs/swagger';
 
-@Controller('account')
+
+@Controller('accounts')
+@ApiTags('Accounts') 
 export class AccountController {
   constructor(private readonly accountService: AccountService) {}
-  @Get()
-  getAccount(): string {
-    return this.accountService.getAccount();
-  }
+   @Get()
+   getAccount(): Promise<AccountModel[]> {
+     return this.accountService.getAccount();
+   }
+   @Post()
+   createAccount( @Body() account: AccountModel): Promise<AccountModel> {
+     return this.accountService.createAccount(account);
+   }
+    
+
 }
